@@ -189,21 +189,20 @@
             </div>
         </section>
 
-        <!-- SECCIÓN: VER PRODUCTO -->
-        <section id="producto" class="page-section hidden items-center justify-center max-w-6xl mx-auto w-full mt-10">
-            <div class="grid md:grid-cols-2 gap-12 w-full">
+        <!-- ============================================== -->
+        <!-- SECCIONES DE PRODUCTOS INDIVIDUALES            -->
+        <!-- ============================================== -->
+
+        <!-- PRODUCTO: VIP -->
+        <section id="producto-vip" class="page-section hidden items-center justify-center max-w-6xl mx-auto w-full mt-10 relative">
+            <button onclick="navigate('tienda')" class="absolute top-0 left-0 -mt-8 text-sm text-gray-400 hover:text-white"><i class="fa-solid fa-arrow-left mr-2"></i> Volver a Tienda</button>
+            <div class="grid md:grid-cols-2 gap-12 w-full pt-4">
                 <div class="flex gap-4">
-                    <!-- Miniaturas -->
                     <div class="flex flex-col gap-2 w-20">
                         <img src="img/vip.jpg" class="w-full h-20 object-cover rounded border border-white/30 cursor-pointer">
-                        <img src="img/vip.jpg" class="w-full h-20 object-cover rounded border border-white/10 opacity-50 hover:opacity-100 cursor-pointer">
-                        <img src="img/vip.jpg" class="w-full h-20 object-cover rounded border border-white/10 opacity-50 hover:opacity-100 cursor-pointer">
                     </div>
-                    <!-- Imagen Principal -->
                     <div class="relative flex-grow">
                         <img src="img/vip.jpg" class="w-full h-96 object-cover rounded-lg border border-white/10">
-                        <button class="absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 w-8 h-8 rounded-full flex items-center justify-center hover:bg-black/80"><i class="fa-solid fa-chevron-left"></i></button>
-                        <button class="absolute right-2 top-1/2 -translate-y-1/2 bg-black/50 w-8 h-8 rounded-full flex items-center justify-center hover:bg-black/80"><i class="fa-solid fa-chevron-right"></i></button>
                     </div>
                 </div>
                 <div class="flex flex-col justify-center items-center text-center">
@@ -211,15 +210,95 @@
                     <p class="text-xl mb-8"><span class="line-through text-gray-500 mr-2 text-lg">AR$8000.00</span> AR$4000.00</p>
                     <button class="bg-white text-black font-bold py-3 px-10 rounded-full hover:bg-gray-200 transition mb-10 w-48">Comprar</button>
                     
-                    <ul class="text-gray-300 space-y-2 text-sm">
+                    <ul class="text-gray-300 space-y-2 text-sm text-left w-full max-w-xs mx-auto">
                         <li>• Ropa personalizada.</li>
                         <li>• Prioridad en la fila.</li>
-                        <li>• Abrir ticket para activar adjuntando steamid.</li>
-                        <li>• Por 30 días.</li>
+                        <li>• Abrir ticket para activar adjuntando SteamID.</li>
+                        <li>• Duración: 30 días.</li>
                     </ul>
                 </div>
             </div>
-            <button onclick="navigate('tienda')" class="absolute top-0 left-0 mt-4 text-sm text-gray-400 hover:text-white"><i class="fa-solid fa-arrow-left mr-2"></i> Volver a Tienda</button>
+        </section>
+
+        <!-- PRODUCTO: VEHÍCULO VIP 2 -->
+        <section id="producto-vehiculo2" class="page-section hidden items-center justify-center max-w-6xl mx-auto w-full mt-10 relative">
+            <button onclick="navigate('tienda')" class="absolute top-0 left-0 -mt-8 text-sm text-gray-400 hover:text-white"><i class="fa-solid fa-arrow-left mr-2"></i> Volver a Tienda</button>
+            <div class="grid md:grid-cols-2 gap-12 w-full pt-4">
+                <div class="flex gap-4">
+                    <div class="flex flex-col gap-2 w-20">
+                        <img src="img/vehiculo2.jpg" class="w-full h-20 object-cover rounded border border-white/30 cursor-pointer">
+                    </div>
+                    <div class="relative flex-grow">
+                        <img src="img/vehiculo2.jpg" class="w-full h-96 object-cover rounded-lg border border-white/10">
+                    </div>
+                </div>
+                <div class="flex flex-col justify-center items-center text-center">
+                    <h1 class="text-5xl font-bold mb-2">Vehículo VIP 2</h1>
+                    <p class="text-xl mb-8">AR$18000.00</p>
+                    <button class="bg-white text-black font-bold py-3 px-10 rounded-full hover:bg-gray-200 transition mb-10 w-48">Comprar</button>
+                    
+                    <ul class="text-gray-300 space-y-2 text-sm text-left w-full max-w-xs mx-auto">
+                        <li>• Vehículo de alta capacidad.</li>
+                        <li>• Partes de motor y ruedas completas.</li>
+                        <li>• Incluye barriles de almacenamiento.</li>
+                        <li>• Abrir ticket para recibir coordenadas de entrega.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- PRODUCTO: VEHÍCULO VIP 1 -->
+        <section id="producto-vehiculo1" class="page-section hidden items-center justify-center max-w-6xl mx-auto w-full mt-10 relative">
+            <button onclick="navigate('tienda')" class="absolute top-0 left-0 -mt-8 text-sm text-gray-400 hover:text-white"><i class="fa-solid fa-arrow-left mr-2"></i> Volver a Tienda</button>
+            <div class="grid md:grid-cols-2 gap-12 w-full pt-4">
+                <div class="flex gap-4">
+                    <div class="flex flex-col gap-2 w-20">
+                        <img src="img/vehiculo1.jpg" class="w-full h-20 object-cover rounded border border-white/30 cursor-pointer">
+                    </div>
+                    <div class="relative flex-grow">
+                        <img src="img/vehiculo1.jpg" class="w-full h-96 object-cover rounded-lg border border-white/10">
+                    </div>
+                </div>
+                <div class="flex flex-col justify-center items-center text-center">
+                    <h1 class="text-5xl font-bold mb-2">Vehículo VIP 1</h1>
+                    <p class="text-xl mb-8">AR$12000.00</p>
+                    <button class="bg-white text-black font-bold py-3 px-10 rounded-full hover:bg-gray-200 transition mb-10 w-48">Comprar</button>
+                    
+                    <ul class="text-gray-300 space-y-2 text-sm text-left w-full max-w-xs mx-auto">
+                        <li>• Vehículo estándar blindado.</li>
+                        <li>• Ideal para moverse por el mapa con seguridad.</li>
+                        <li>• Tanque lleno al momento de entrega.</li>
+                        <li>• Abrir ticket en Discord con comprobante.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- PRODUCTO: BASE 3 -->
+        <section id="producto-base3" class="page-section hidden items-center justify-center max-w-6xl mx-auto w-full mt-10 relative">
+            <button onclick="navigate('tienda')" class="absolute top-0 left-0 -mt-8 text-sm text-gray-400 hover:text-white"><i class="fa-solid fa-arrow-left mr-2"></i> Volver a Tienda</button>
+            <div class="grid md:grid-cols-2 gap-12 w-full pt-4">
+                <div class="flex gap-4">
+                    <div class="flex flex-col gap-2 w-20">
+                        <img src="img/base3.jpg" class="w-full h-20 object-cover rounded border border-white/30 cursor-pointer">
+                    </div>
+                    <div class="relative flex-grow">
+                        <img src="img/base3.jpg" class="w-full h-96 object-cover rounded-lg border border-white/10">
+                    </div>
+                </div>
+                <div class="flex flex-col justify-center items-center text-center">
+                    <h1 class="text-5xl font-bold mb-2">Base 3</h1>
+                    <p class="text-xl mb-8">AR$30000.00</p>
+                    <button class="bg-white text-black font-bold py-3 px-10 rounded-full hover:bg-gray-200 transition mb-10 w-48">Comprar</button>
+                    
+                    <ul class="text-gray-300 space-y-2 text-sm text-left w-full max-w-xs mx-auto">
+                        <li>• Materiales de construcción premium.</li>
+                        <li>• CodeLocks y puertas incluidas.</li>
+                        <li>• Ubicación estratégica a elección (zonas permitidas).</li>
+                        <li>• Soporte prioritario para construcción.</li>
+                    </ul>
+                </div>
+            </div>
         </section>
 
         <!-- SECCIÓN: TÉRMINOS Y CONDICIONES (Resumen) -->
