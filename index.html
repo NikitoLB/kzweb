@@ -19,177 +19,445 @@
     </div>
 
     <!-- Navegación -->
-    <nav class="flex justify-between items-center px-8 py-4 bg-transparent border-b border-white/10 relative z-10">
-        <div class="flex gap-6 text-sm font-medium">
-            <button onclick="navigate('inicio')" class="nav-link hover:text-gray-300 transition active-link" data-target="inicio">Inicio</button>
-            <button onclick="navigate('servidores')" class="nav-link hover:text-gray-300 transition" data-target="servidores">Servidores</button>
-            <button onclick="navigate('leaderboard')" class="nav-link hover:text-gray-300 transition" data-target="leaderboard">Leaderboard</button>
-            <button onclick="navigate('tienda')" class="nav-link hover:text-gray-300 transition" data-target="tienda">Tienda</button>
-        </div>
-        <div class="absolute left-1/2 transform -translate-x-1/2">
-            <img src="img/logo.png" alt="KZ Logo" class="h-12 cursor-pointer" onclick="navigate('inicio')">
-        </div>
-        <div class="flex gap-6 text-xl">
-            <a href="https://discord.me/killzero" target="_blank" class="hover:text-gray-300 transition"><i class="fa-brands fa-discord"></i></a>
-            <button class="hover:text-gray-300 transition"><i class="fa-solid fa-bag-shopping"></i></button>
-        </div>
-    </nav>
+    <nav class="w-full max-w-7xl mx-auto px-6 py-4 relative z-10 flex items-center justify-between">
+
+    <!-- IZQUIERDA: Logo -->
+    <div class="flex items-center gap-3 cursor-pointer" onclick="navigate('inicio')">
+        <img src="img/logo.png" alt="KZ Logo" class="h-10">
+        <span class="font-blackops text-xl tracking-wider invisible sm:block">KILLZERO</span>
+    </div>
+
+    <!-- CENTRO: Menú -->
+    <div class="hidden md:flex bg-white/10 backdrop-blur-md rounded-full px-6 py-2 gap-6 items-center border border-white/10 shadow-lg text-sm font-bold tracking-wide">
+        <button onclick="navigate('inicio')" class="nav-link hover:text-gray-300 transition flex items-center gap-2 active-link" data-target="inicio">
+            <i class="fa-solid fa-house"></i> INICIO
+        </button>
+        <button onclick="navigate('informacion')" class="nav-link hover:text-gray-300 transition flex items-center gap-2" data-target="informacion">
+            <i class="fa-solid fa-circle-info"></i> INFO
+        </button>
+        <button onclick="navigate('servidores')" class="nav-link hover:text-gray-300 transition flex items-center gap-2" data-target="servidores">
+            <i class="fa-solid fa-server"></i> SERVIDORES
+        </button>
+        <button onclick="navigate('leaderboard')" class="nav-link hover:text-gray-300 transition flex items-center gap-2" data-target="leaderboard">
+            <i class="fa-solid fa-trophy"></i> RANKING
+        </button>
+        <button onclick="navigate('tienda')" class="nav-link hover:text-gray-300 transition flex items-center gap-2" data-target="tienda">
+            <i class="fa-solid fa-store"></i> TIENDA
+        </button>
+    </div>
+
+    <!-- DERECHA: Discord + Login -->
+    <div class="flex items-center gap-3">
+
+        <!-- Discord -->
+        <a href="https://discord.me/killzero" target="_blank"
+           class="flex items-center gap-2 bg-[#5865F2] hover:bg-[#4752C4] transition px-4 py-2 rounded-full text-sm font-bold shadow-md">
+            <i class="fa-brands fa-discord text-lg"></i>
+            <span class="hidden sm:block">DISCORD</span>
+        </a>
+
+        <!-- Login -->
+        <button class="bg-red-600 hover:bg-red-700 transition px-5 py-2 rounded-full text-sm font-bold shadow-[0_0_10px_rgba(220,38,38,0.4)]">
+            LOGIN
+        </button>
+
+    </div>
+</nav>
 
     <!-- CONTENIDO PRINCIPAL -->
     <main class="flex-grow flex flex-col relative z-10 p-8">
         
         <!-- SECCIÓN: INICIO -->
-        <section id="inicio" class="page-section flex flex-col items-center justify-center flex-grow text-center">
-            <!-- ... (Contenido de Inicio sin cambios) ... -->
-            <h1 class="text-6xl md:text-8xl font-blackops tracking-wider mb-4 drop-shadow-lg">KILL ZERO LATAM</h1>
+        <section id="inicio" class="page-section flex flex-col items-center justify-center flex-grow text-center mt-10">
+            <h1 class="text-6xl md:text-8xl font-blackops tracking-wider mb-4 drop-shadow-lg">KILL ZERO</h1>
             <p class="text-lg md:text-xl text-gray-300 mb-2">Bienvenido a la página oficial de nuestro servidor de <strong class="text-white">DayZ</strong>.</p>
             <p class="text-md text-gray-400 max-w-2xl mb-8">
                 Aquí podrás encontrar <strong class="text-white">novedades, anuncios, próximos eventos y actualizaciones</strong> del servidor.<br>
                 También podrás seguir las actividades de la comunidad y mantenerte informado sobre todo lo que ocurre dentro del juego.<br><br>
                 Explora la página para conocer más sobre el servidor y no perderte ninguna novedad.
             </p>
-            <div class="flex w-full max-w-5xl justify-between mt-12 text-left">
-                <div>
-                    <h2 class="text-2xl font-blackops tracking-wider mb-4">NOVEDADES</h2>
-                    <p class="text-sm text-gray-400">• NUEVAS ACTUALIZACIONES</p>
+        </section>
+
+        <!-- SECCIÓN: INFORMACIÓN -->
+        <section id="informacion" class="page-section hidden flex-col items-center mt-10">
+            <h1 class="text-5xl font-blackops tracking-wider mb-8 drop-shadow-lg text-center uppercase">Información y Economía</h1>
+            
+            <div class="w-full max-w-5xl bg-white/5 border border-white/10 rounded-lg backdrop-blur-sm p-8 text-gray-300 shadow-xl mb-12">
+                <h2 class="text-2xl font-bold text-white mb-4"><i class="fa-solid fa-coins mr-2 text-yellow-500"></i> Sistema de Puntos.</h2>
+                <p class="mb-4 text-sm leading-relaxed">
+                    En KillZero contamos con un sistema de economía propio totalmente integrado. Puedes conseguir puntos jugando de manera gratuita: <strong class="text-white">se otorgan puntos simplemente por estar conectado en el servidor, y por cada baja (kill) que realices contra otros jugadores</strong>.
+                </p>
+                <p class="mb-4 text-sm leading-relaxed">
+                    ¿Para qué sirven? Estos puntos son la moneda de nuestra página web. Con ellos podrás <strong class="text-white">comprar vehículos, materiales para construir tu base, lockers, herramientas y ropa</strong>. ¡También puedes usar tus monedas recolectadas en el juego para adquirir los rangos VIP desde nuestra tienda!
+                </p>
+                <p class="text-sm leading-relaxed">
+                    Además de conseguir puntos jugando, ofrecemos la posibilidad de <strong class="text-white">cargar saldo (puntos) con dinero real</strong> para agilizar tu progreso.
+                </p>
+            </div>
+
+            <!-- Sección RANGOS VIP -->
+            <h2 class="text-4xl font-blackops tracking-wider mb-8 drop-shadow-lg text-center text-white">RANGOS VIP</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl w-full mb-16">
+                <!-- VIP Bronze -->
+                <div class="bg-white/5 border border-white/10 p-6 rounded-lg hover:bg-white/10 transition shadow-lg flex flex-col items-center">
+                    <div class="w-16 h-16 bg-gradient-to-br from-amber-700 to-amber-900 rounded-full flex items-center justify-center mb-4 text-2xl border border-white/20">
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-1 uppercase">VIP Bronze</h3>
+                    <p class="text-amber-600 font-bold mb-2 text-sm">30 Días</p>
+                    <p class="text-xs text-yellow-500 font-bold mb-4 bg-yellow-500/10 px-3 py-1 rounded-full"><i class="fa-solid fa-coins mr-1"></i> Adquirible por 25,000 Pts</p>
+                    <ul class="text-sm text-gray-400 space-y-2 text-left w-full list-disc pl-5">
+                        <li>Prioridad en la cola del servidor.</li>
+                        <li>Rol exclusivo en Discord.</li>
+                        <li>Bono inicial: +3.000 Monedas.</li>
+                    </ul>
                 </div>
-                <div class="text-right">
-                    <h2 class="text-2xl font-blackops tracking-wider mb-4">EVENTOS</h2>
-                    <p class="text-sm text-gray-400">• NEW WIPE 20 03 2026</p>
+
+                <!-- VIP Silver -->
+                <div class="bg-white/5 border border-white/10 p-6 rounded-lg hover:bg-white/10 transition shadow-lg flex flex-col items-center scale-105 relative z-10 border-gray-400/50">
+                    <div class="w-16 h-16 bg-gradient-to-br from-gray-300 to-gray-500 rounded-full flex items-center justify-center mb-4 text-2xl border border-white/20 text-black">
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-1 uppercase">VIP Silver</h3>
+                    <p class="text-gray-400 font-bold mb-2 text-sm">30 Días</p>
+                    <p class="text-xs text-yellow-500 font-bold mb-4 bg-yellow-500/10 px-3 py-1 rounded-full"><i class="fa-solid fa-coins mr-1"></i> Adquirible por 50,000 Pts</p>
+                    <ul class="text-sm text-gray-400 space-y-2 text-left w-full list-disc pl-5">
+                        <li>Prioridad en la cola del servidor.</li>
+                        <li>Rol exclusivo en Discord.</li>
+                        <li>Bono inicial: +6.000 Monedas.</li>
+                        <li>Acceso a Tienda VIP privada.</li>
+                    </ul>
+                </div>
+
+                <!-- VIP Gold -->
+                <div class="bg-white/5 border border-white/10 p-6 rounded-lg hover:bg-white/10 transition shadow-lg flex flex-col items-center border-yellow-500/30">
+                    <div class="w-16 h-16 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-full flex items-center justify-center mb-4 text-2xl border border-white/20 text-black">
+                        <i class="fa-solid fa-crown"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-1 uppercase">VIP Gold</h3>
+                    <p class="text-yellow-500 font-bold mb-2 text-sm">30 Días</p>
+                    <p class="text-xs text-yellow-500 font-bold mb-4 bg-yellow-500/10 px-3 py-1 rounded-full"><i class="fa-solid fa-coins mr-1"></i> Adquirible por 100,000 Pts</p>
+                    <ul class="text-sm text-gray-400 space-y-2 text-left w-full list-disc pl-5">
+                        <li>Prioridad en la cola del servidor.</li>
+                        <li>Rol exclusivo y color en Discord.</li>
+                        <li>Bono inicial: +10.000 Monedas.</li>
+                        <li>Acceso a Tienda VIP privada.</li>
+                        <li>Descuentos unicos en la Tienda VIP.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Sección PACKS DE MONEDAS -->
+            <h2 class="text-4xl font-blackops tracking-wider mb-8 drop-shadow-lg text-center text-white">PACKS DE MONEDAS</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-4 max-w-6xl w-full">
+                <!-- Pack 1 -->
+                <div class="bg-[#1e1e1e] border border-white/10 p-4 rounded-lg text-center hover:-translate-y-2 transition duration-300">
+                    <i class="fa-solid fa-coins text-3xl text-yellow-500 mb-3"></i>
+                    <h3 class="font-bold text-white mb-2 text-lg">Pack Básico</h3>
+                    <p class="text-yellow-500 font-bold mb-2">10,000 Pts</p>
+                    <p class="text-xs text-gray-400">Ideal para comprar materiales de inicio.</p>
+                </div>
+                <!-- Pack 2 -->
+                <div class="bg-[#1e1e1e] border border-white/10 p-4 rounded-lg text-center hover:-translate-y-2 transition duration-300">
+                    <div class="relative inline-block mb-3">
+                        <i class="fa-solid fa-coins text-3xl text-yellow-500 relative -left-1"></i>
+                        <i class="fa-solid fa-coins text-3xl text-yellow-600 absolute -right-3 top-1"></i>
+                    </div>
+                    <h3 class="font-bold text-white mb-2 text-lg">Pack Estándar</h3>
+                    <p class="text-yellow-500 font-bold mb-2">25,000 Pts</p>
+                    <p class="text-xs text-gray-400">Perfecto para un vehículo básico.</p>
+                </div>
+                <!-- Pack 3 -->
+                <div class="bg-[#1e1e1e] border border-yellow-500/50 p-4 rounded-lg text-center hover:-translate-y-2 transition duration-300 relative shadow-[0_0_15px_rgba(234,179,8,0.15)]">
+                    <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-yellow-500 text-black text-xs font-bold px-2 py-1 rounded">MÁS VENDIDO</span>
+                    <i class="fa-solid fa-sack-dollar text-4xl text-yellow-500 mb-3 mt-2"></i>
+                    <h3 class="font-bold text-white mb-2 text-lg">Pack Avanzado</h3>
+                    <p class="text-yellow-500 font-bold mb-2">50,000 Pts</p>
+                    <p class="text-xs text-gray-400">Suficiente para armar una buena base y vehículos.</p>
+                </div>
+                <!-- Pack 4 -->
+                <div class="bg-[#1e1e1e] border border-white/10 p-4 rounded-lg text-center hover:-translate-y-2 transition duration-300">
+                    <i class="fa-solid fa-box-open text-4xl text-yellow-500 mb-3"></i>
+                    <h3 class="font-bold text-white mb-2 text-lg">Pack Elite</h3>
+                    <p class="text-yellow-500 font-bold mb-2">100,000 Pts</p>
+                    <p class="text-xs text-gray-400">Ideal para una base, vehículo y lockers.</p>
+                </div>
+                <!-- Pack 5 -->
+                <div class="bg-[#1e1e1e] border border-white/10 p-4 rounded-lg text-center hover:-translate-y-2 transition duration-300">
+                    <i class="fa-solid fa-gem text-4xl text-cyan-400 mb-3"></i>
+                    <h3 class="font-bold text-white mb-2 text-lg">Pack KillZero</h3>
+                    <p class="text-cyan-400 font-bold mb-2">250,000 Pts</p>
+                    <p class="text-xs text-gray-400">Economía total, ideal para adquirir VIPS e items.</p>
                 </div>
             </div>
         </section>
 
-        <!-- SECCIÓN: SERVIDORES -->
-        <section id="servidores" class="page-section hidden flex-col items-center">
-             <!-- ... (Contenido de Servidores sin cambios) ... -->
-            <h1 class="text-5xl font-blackops tracking-wider mb-12 mt-8 drop-shadow-lg">SERVIDORES</h1>
-            <div class="grid md:grid-cols-2 gap-16 max-w-5xl w-full">
+                <!-- SECCIÓN: SERVIDORES -->
+        <section id="servidores" class="page-section hidden flex-col items-center mt-10 w-full max-w-5xl mx-auto gap-12">
+            <h1 class="text-5xl font-blackops tracking-wider mb-4 drop-shadow-lg">SERVIDORES</h1>
+            
+            <!-- SERVIDOR 1: VANILLA+ -->
+            <div class="w-full flex flex-col gap-6">
+                <!-- Información -->
                 <div>
-                    <h2 class="text-xl font-blackops tracking-widest mb-6 border-b border-white/20 pb-2">SERVIDOR VANILLA++</h2>
+                    <h2 class="text-xl font-blackops tracking-widest mb-4 border-b border-white/20 pb-2 text-red-500">SERVIDOR VANILLA+</h2>
                     <ul class="space-y-3 text-sm text-gray-300 leading-relaxed list-disc pl-5">
-                        <li>Servidor <strong class="text-white">DayZ Vanilla ++</strong> enfocado en PvP y supervivencia.</li>
+                        <li>Servidor <strong class="text-white">Vanilla +</strong> enfocado en PvP y supervivencia.</li>
                         <li><strong class="text-white">KOTH (King of the Hill)</strong> con zonas activas para combates y loot de alto nivel.</li>
                         <li><strong class="text-white">Airdrops</strong> aleatorios con equipamiento valioso.</li>
                         <li><strong class="text-white">Base Building Plus</strong> para construir y mejorar tu propia base.</li>
-                        <li><strong class="text-white">Loot ++</strong> para una progresión más dinámica.</li>
+                        <li><strong class="text-white">Loot +</strong> para una progresión más dinámica.</li>
                         <li><strong class="text-white">Eventos dinámicos</strong> durante el gameplay.</li>
                         <li><strong class="text-white">PvP activo</strong> en todo el mapa.</li>
                         <li>Raids por medio de C4 crafteables.</li>
                         <li>Exploración, raids y defensa de bases.</li>
                         <li>Comunidad activa y constante desarrollo del servidor.</li>
-                        <li>Bunker en la isla skalisty con loot y cajas unicas.</li>
+                        <li>Bunker en la Isla Skalisty con loot y cajas unicas.</li>
                     </ul>
                 </div>
+                
+                <!-- Barra de Conexión -->
+                <div class="bg-white/5 border border-white/10 p-6 rounded-lg backdrop-blur-sm w-full shadow-xl flex flex-col md:flex-row items-center gap-6 justify-between hover:border-white/20 transition">
+                    <div class="flex items-center gap-6">
+                        <div class="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center text-3xl shadow-[0_0_20px_rgba(220,38,38,0.5)] flex-shrink-0">
+                            <i class="fa-solid fa-server"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-blackops mb-1 text-white uppercase tracking-wide">KillZero LATAM | Vanilla+</h3>
+                            <p class="text-gray-400 text-sm mb-2"><i class="fa-solid fa-map-location-dot mr-1"></i> Mapa: Chernarus | <i class="fa-solid fa-users mr-1"></i> Slots: 70</p>
+                            <div class="bg-black/50 px-3 py-1 rounded text-green-400 font-mono text-sm inline-block border border-green-500/30">
+                                IP: 189.127.164.215:2302
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex flex-col gap-3 w-full md:w-auto mt-4 md:mt-0">
+                        <a href="steam://connect/192.168.1.100:2302" class="bg-red-600 text-white font-bold px-8 py-3 rounded-full hover:bg-red-700 transition text-center shadow-[0_0_15px_rgba(220,38,38,0.4)] whitespace-nowrap">
+                            <i class="fa-solid fa-play mr-2"></i> CONECTAR
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SERVIDOR 2: DEATHMATCH -->
+            <div class="w-full flex flex-col gap-6 mt-4">
+                <!-- Información -->
                 <div>
-                    <h2 class="text-xl font-blackops tracking-widest mb-6 border-b border-white/20 pb-2">SERVIDOR DEATHMATCH</h2>
-                    <p class="text-gray-300 mt-4">• PROXIMAMENTE</p>
+                    <h2 class="text-xl font-blackops tracking-widest mb-4 border-b border-white/20 pb-2 text-gray-400">SERVIDOR DEATHMATCH</h2>
+                    <p class="text-gray-300 mt-2 text-sm font-bold tracking-wide"><i class="fa-solid fa-clock mr-2"></i> PRÓXIMAMENTE</p>
+                </div>
+                
+                <!-- Barra de Conexión (Modo Mantenimiento) -->
+                <div class="bg-white/5 border border-white/10 p-6 rounded-lg backdrop-blur-sm w-full shadow-xl flex flex-col md:flex-row items-center gap-6 justify-between opacity-70">
+                    <div class="flex items-center gap-6">
+                        <div class="w-16 h-16 bg-gray-600 rounded-full flex items-center justify-center text-3xl shadow-[0_0_15px_rgba(75,85,99,0.4)] flex-shrink-0">
+                            <i class="fa-solid fa-server"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-blackops mb-1 text-gray-300 uppercase tracking-wide">KillZero LATAM | Deathmatch</h3>
+                            <p class="text-gray-500 text-sm mb-2"><i class="fa-solid fa-map-location-dot mr-1"></i> Mapa: TBD | <i class="fa-solid fa-users mr-1"></i> Slots: TBD</p>
+                            <div class="bg-black/50 px-3 py-1 rounded text-gray-400 font-mono text-sm inline-block border border-gray-600/30">
+                                IP: No disponible
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex flex-col gap-3 w-full md:w-auto mt-4 md:mt-0">
+                        <button disabled class="bg-gray-700 text-gray-300 font-bold px-8 py-3 rounded-full cursor-not-allowed text-center whitespace-nowrap">
+                            <i class="fa-solid fa-screwdriver-wrench mr-2"></i> MANTENIMIENTO
+                        </button>
+                    </div>
                 </div>
             </div>
         </section>
 
+
         <!-- SECCIÓN: LEADERBOARD -->
         <section id="leaderboard" class="page-section hidden flex-col items-center">
-             <!-- ... (Contenido de Leaderboard sin cambios) ... -->
             <h1 class="text-5xl font-blackops tracking-wider mb-10 mt-8 drop-shadow-lg">LEADERBOARD</h1>
-            <div class="w-full max-w-6xl bg-white/5 border border-white/10 rounded-lg overflow-hidden backdrop-blur-sm">
+            <div class="w-full max-w-6xl bg-white/5 border border-white/10 rounded-lg overflow-hidden backdrop-blur-sm p-4 text-center">
+                <p class="text-gray-400">Próximamente...</p>
                 <!-- tabla -->
             </div>
         </section>
 
-        <!-- SECCIÓN: TIENDA -->
-        <section id="tienda" class="page-section hidden flex-col items-center text-center">
-            <h1 class="text-5xl font-blackops tracking-wider mb-4 mt-8 drop-shadow-lg">TIENDA KILLZERO</h1>
-            <p class="text-gray-300 max-w-2xl mb-12 text-sm">
-                Una vez realizada tu compra, te pedimos que abras un ticket en nuestro Discord para poder recibirla correctamente. En caso de que tengas algún inconveniente con el pago, podés consultar con un administrador a través de Discord.
-            </p>
+                <!-- SECCIÓN: TIENDA NUEVA -->
+        <section id="tienda" class="page-section hidden flex-col w-full max-w-7xl mx-auto mt-10">
             
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl w-full">
-                <!-- Se cambió onclick a viewProduct('id') -->
-                <div class="cursor-pointer group" onclick="viewProduct('vip')">
-                    <div class="overflow-hidden rounded-md border border-white/10 mb-3">
-                        <img src="img/vip.jpg" class="w-full h-40 object-cover group-hover:scale-105 transition duration-500">
-                    </div>
-                    <h3 class="font-bold text-lg mb-1">VIP</h3>
-                    <p class="text-sm"><span class="line-through text-gray-500 mr-2">AR$8000.00</span> AR$4000.00</p>
+            <!-- Encabezado de la tienda -->
+            <div class="mb-10 w-full text-left">
+                <h1 class="text-4xl font-blackops tracking-wider mb-4 flex items-center gap-3 drop-shadow-lg uppercase">
+                    <i class="fa-solid fa-cart-shopping"></i> Tienda de ítems
+                </h1>
+                <p class="text-gray-300 text-sm max-w-3xl leading-relaxed">
+                    Equipamientos esenciales para tu supervivencia. Desde suministros básicos a vehículos raros, tenemos todo lo que necesitas para sobrevivir en Chernarus. Ahora puedes usar tus monedas obtenidas en el juego.
+                </p>
+            </div>
+
+            <!-- Barra de Filtros y Búsqueda -->
+            <div class="flex flex-col lg:flex-row justify-between items-center bg-white/5 border border-white/10 rounded-full p-2 mb-8 backdrop-blur-sm w-full gap-4">
+                <div class="flex flex-wrap justify-center gap-2 text-sm font-bold w-full lg:w-auto" id="store-filters">
+                    <button class="filter-btn bg-white text-black px-6 py-2.5 rounded-full transition hover:bg-gray-200" data-filter="all">TODOS</button>
+                    <button class="filter-btn px-6 py-2.5 rounded-full hover:bg-white/10 transition text-gray-300" data-filter="vips">VIPS Y ROPA</button>
+                    <button class="filter-btn px-6 py-2.5 rounded-full hover:bg-white/10 transition text-gray-300" data-filter="vehiculos">VEHÍCULOS</button>
+                    <button class="filter-btn px-6 py-2.5 rounded-full hover:bg-white/10 transition text-gray-300" data-filter="kits">KITS BASE</button>
+                    <button class="filter-btn px-6 py-2.5 rounded-full hover:bg-white/10 transition text-gray-300" data-filter="construccion">CONSTRUCCIÓN</button>
                 </div>
-                <div class="cursor-pointer group" onclick="viewProduct('vehiculo2')">
-                    <div class="overflow-hidden rounded-md border border-white/10 mb-3">
-                        <img src="img/vehiculo2.jpg" class="w-full h-40 object-cover group-hover:scale-105 transition duration-500">
-                    </div>
-                    <h3 class="font-bold text-lg mb-1">Vehiculo VIP 2</h3>
-                    <p class="text-sm">AR$18000.00</p>
+                <div class="px-4 w-full lg:w-80 flex items-center bg-black/40 rounded-full border border-white/5 p-2">
+                    <i class="fa-solid fa-magnifying-glass text-gray-400 ml-2 mr-3"></i>
+                    <input type="text" id="store-search" placeholder="Buscar producto..." class="bg-transparent border-none outline-none text-white text-sm w-full h-full">
                 </div>
-                <div class="cursor-pointer group" onclick="viewProduct('vehiculo1')">
-                    <div class="overflow-hidden rounded-md border border-white/10 mb-3">
-                        <img src="img/vehiculo1.jpg" class="w-full h-40 object-cover group-hover:scale-105 transition duration-500">
-                    </div>
-                    <h3 class="font-bold text-lg mb-1">Vehiculo VIP 1</h3>
-                    <p class="text-sm">AR$12000.00</p>
+            </div>
+            
+            <!-- Grilla de Productos -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 w-full" id="store-grid">
+                
+                <iframe src="https://panel.clusterz.cloud/api/v1/store/3f775493-0b9f-464e-99fe-f635545f3852" width="420" height="680" frameborder="0" allowtransparency="true"></iframe>
                 </div>
-                <div class="cursor-pointer group" onclick="viewProduct('base3')">
-                    <div class="overflow-hidden rounded-md border border-white/10 mb-3">
-                        <img src="img/base3.jpg" class="w-full h-40 object-cover group-hover:scale-105 transition duration-500">
-                    </div>
-                    <h3 class="font-bold text-lg mb-1">Base 3</h3>
-                    <p class="text-sm">AR$30000.00</p>
-                </div>
-                <div class="cursor-pointer group" onclick="viewProduct('base2')">
-                    <div class="overflow-hidden rounded-md border border-white/10 mb-3">
-                        <img src="img/base2.jpg" class="w-full h-40 object-cover group-hover:scale-105 transition duration-500">
-                    </div>
-                    <h3 class="font-bold text-lg mb-1">Base 2</h3>
-                    <p class="text-sm">AR$20000.00</p>
-                </div>
-                <div class="cursor-pointer group" onclick="viewProduct('base1')">
-                    <div class="overflow-hidden rounded-md border border-white/10 mb-3">
-                        <img src="img/base1.jpg" class="w-full h-40 object-cover group-hover:scale-105 transition duration-500">
-                    </div>
-                    <h3 class="font-bold text-lg mb-1">Base 1</h3>
-                    <p class="text-sm">AR$15000.00</p>
-                </div>
+
             </div>
         </section>
 
-        <!-- SECCIÓN: VER PRODUCTO -->
-        <section id="producto" class="page-section hidden items-center justify-center max-w-6xl mx-auto w-full mt-10 relative">
-            <div class="grid md:grid-cols-2 gap-12 w-full">
-                <div class="flex gap-4">
-                    <!-- Miniaturas Dinámicas -->
-                    <div id="product-thumbnails" class="flex flex-col gap-2 w-20">
-                        <!-- Se generarán por JavaScript -->
-                    </div>
-                    <!-- Imagen Principal Dinámica -->
-                    <div class="relative flex-grow">
-                        <img id="main-product-image" src="" class="w-full h-96 object-cover rounded-lg border border-white/10 shadow-lg image-transition">
-                        <!-- Controles -->
-                        <button onclick="prevImage()" class="absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 w-8 h-8 rounded-full flex items-center justify-center hover:bg-black/80 transition text-white"><i class="fa-solid fa-chevron-left"></i></button>
-                        <button onclick="nextImage()" class="absolute right-2 top-1/2 -translate-y-1/2 bg-black/50 w-8 h-8 rounded-full flex items-center justify-center hover:bg-black/80 transition text-white"><i class="fa-solid fa-chevron-right"></i></button>
-                    </div>
+        <!-- SECCIÓN: TÉRMINOS Y CONDICIONES -->
+        <section id="terminos" class="page-section hidden flex-col max-w-4xl mx-auto w-full mt-10 bg-[#151515] p-8 border border-white/10 rounded-lg shadow-xl">
+            <h1 class="text-4xl font-blackops tracking-wider mb-8 text-white text-center drop-shadow-lg">TÉRMINOS Y CONDICIONES</h1>
+            <p class="text-sm mb-8 text-center text-gray-400">Al realizar una donación o compra en KillZero, aceptas automáticamente los siguientes términos.</p>
+            <div>
+                    <h3 class="text-xl font-bold text-white mb-2"><i class="fa-solid fa-sack-dollar mr-2"></i> 1. Política de Reembolsos</h3>
+                    <p>Todas las transacciones realizadas en la tienda de KillZero son finales. Al tratarse de bienes virtuales e intangibles, <strong class="text-white">no se emitirán reembolsos</strong> bajo ninguna circunstancia una vez que el paquete o ítem haya sido entregado. Si experimentas algún problema con tu pago, por favor abre un ticket en nuestro servidor de Discord.</p>
                 </div>
-                <div class="flex flex-col justify-center items-center text-center">
-                    <h1 id="product-title" class="text-5xl font-bold mb-2">Producto</h1>
-                    <p id="product-price" class="text-xl mb-8">Precio</p>
-                    <button class="bg-white text-black font-bold py-3 px-10 rounded-full hover:bg-gray-200 transition mb-10 w-48 shadow-[0_0_15px_rgba(255,255,255,0.3)]">Comprar</button>
-                    
-                    <ul id="product-features" class="text-gray-300 space-y-2 text-sm text-left w-full px-8">
-                        <!-- Características dinámicas -->
-                    </ul>
+                
+                <div>
+                    <h3 class="text-xl font-bold text-white mb-2"><i class="fa-solid fa-truck-fast mr-2"></i> 2. Entrega de Productos</h3>
+                    <p>La entrega de los productos virtuales (VIP, bases, vehículos) se coordina de manera manual a través de nuestro sistema de soporte (Tickets) en Discord. Es obligatorio proveer tu <strong class="text-white">SteamID64</strong> correcto al momento de reclamar tu paquete para evitar demoras.</p>
                 </div>
-            </div>
-            <button onclick="navigate('tienda')" class="absolute top-0 left-0 -mt-12 text-sm text-gray-400 hover:text-white transition"><i class="fa-solid fa-arrow-left mr-2"></i> Volver a Tienda</button>
+
+                <div>
+                    <h3 class="text-xl font-bold text-white mb-2"><i class="fa-solid fa-biohazard mr-2"></i> 3. Pérdida de Ítems y Wipes</h3>
+                    <p>KillZero no se hace responsable por la pérdida de ítems debido a bugs propios del juego (DayZ), asaltos (raids) legítimos por parte de otros jugadores, o durante los reinicios de temporada (Wipes). Los beneficios duran según lo especificado en cada paquete (Ej: "Todo el WIPE" o "Por 30 días").</p>
+                </div>
+
+                <div>
+                    <h3 class="text-xl font-bold text-white mb-2"><i class="fa-solid fa-gavel mr-2"></i> 4. Comportamiento y Reglas del Servidor</h3>
+                    <p>Adquirir un paquete VIP o cualquier producto de la tienda <strong class="text-white">no te otorga inmunidad</strong> ni te exime de cumplir las reglas generales del servidor. En caso de ser baneado por uso de trampas (hacks), aprovechar exploits, o tener un comportamiento tóxico/ilegal, perderás el acceso a tus beneficios sin derecho a reclamo ni reembolso.</p>
+                </div>
+
+                <div>
+                    <h3 class="text-xl font-bold text-white mb-2"><i class="fa-solid fa-wrench mr-2"></i> 5. Modificaciones de los Paquetes</h3>
+                    <p>La administración de KillZero se reserva el derecho de modificar o ajustar el contenido de los paquetes, vehículos, stats o bases en caso de que estos afecten el balance y la jugabilidad del servidor. Cualquier cambio mayor será notificado previamente a la comunidad.</p>
+                </div>
         </section>
 
-        <!-- SECCIÓN: TÉRMINOS Y CONDICIONES (Resumen) -->
-        <section id="terminos" class="page-section hidden flex-col max-w-4xl mx-auto w-full mt-10 text-gray-300">
-            <!-- ... (Contenido de Términos sin cambios) ... -->
+        <!-- SECCIÓN: REGLAS DEL SERVIDOR -->
+        <section id="reglas" class="page-section hidden flex-col max-w-4xl mx-auto w-full mt-10 bg-[#151515] p-8 border border-white/10 rounded-lg shadow-xl">
+            <h1 class="text-4xl font-blackops tracking-wider mb-8 text-white text-center drop-shadow-lg">REGLAS DEL SERVIDOR</h1>
+            <div>
+                    <h3 class="text-xl font-bold text-white mb-2"><i class="fa-solid fa-sack-dollar mr-2"></i> 1. Política de Reembolsos</h3>
+                    <p>Todas las transacciones realizadas en la tienda de KillZero son finales. Al tratarse de bienes virtuales e intangibles, <strong class="text-white">no se emitirán reembolsos</strong> bajo ninguna circunstancia una vez que el paquete o ítem haya sido entregado. Si experimentas algún problema con tu pago, por favor abre un ticket en nuestro servidor de Discord.</p>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold text-white mb-2"><i class="fa-solid fa-truck-fast mr-2"></i> 2. Entrega de Productos</h3>
+                    <p>La entrega de los productos virtuales (VIP, bases, vehículos) se coordina de manera manual a través de nuestro sistema de soporte (Tickets) en Discord. Es obligatorio proveer tu <strong class="text-white">SteamID64</strong> correcto al momento de reclamar tu paquete para evitar demoras.</p>
+                </div>
+
+                <div>
+                    <h3 class="text-xl font-bold text-white mb-2"><i class="fa-solid fa-biohazard mr-2"></i> 3. Pérdida de Ítems y Wipes</h3>
+                    <p>KillZero no se hace responsable por la pérdida de ítems debido a bugs propios del juego (DayZ), asaltos (raids) legítimos por parte de otros jugadores, o durante los reinicios de temporada (Wipes). Los beneficios duran según lo especificado en cada paquete (Ej: "Todo el WIPE" o "Por 30 días").</p>
+                </div>
+
+                <div>
+                    <h3 class="text-xl font-bold text-white mb-2"><i class="fa-solid fa-gavel mr-2"></i> 4. Comportamiento y Reglas del Servidor</h3>
+                    <p>Adquirir un paquete VIP o cualquier producto de la tienda <strong class="text-white">no te otorga inmunidad</strong> ni te exime de cumplir las reglas generales del servidor. En caso de ser baneado por uso de trampas (hacks), aprovechar exploits, o tener un comportamiento tóxico/ilegal, perderás el acceso a tus beneficios sin derecho a reclamo ni reembolso.</p>
+                </div>
+
+                <div>
+                    <h3 class="text-xl font-bold text-white mb-2"><i class="fa-solid fa-wrench mr-2"></i> 5. Modificaciones de los Paquetes</h3>
+                    <p>La administración de KillZero se reserva el derecho de modificar o ajustar el contenido de los paquetes, vehículos, stats o bases en caso de que estos afecten el balance y la jugabilidad del servidor. Cualquier cambio mayor será notificado previamente a la comunidad.</p>
+                </div>
+        </section>
+
+        <!-- SECCIÓN: TÉRMINOS DE USO -->
+        <section id="terminos-uso" class="page-section hidden flex-col max-w-4xl mx-auto w-full mt-10 bg-[#151515] p-8 border border-white/10 rounded-lg shadow-xl">
+            <h1 class="text-4xl font-blackops tracking-wider mb-8 text-white text-center drop-shadow-lg">TÉRMINOS DE USO</h1>
+            <div>
+                    <h3 class="text-xl font-bold text-white mb-2"><i class="fa-solid fa-sack-dollar mr-2"></i> 1. Política de Reembolsos</h3>
+                    <p>Todas las transacciones realizadas en la tienda de KillZero son finales. Al tratarse de bienes virtuales e intangibles, <strong class="text-white">no se emitirán reembolsos</strong> bajo ninguna circunstancia una vez que el paquete o ítem haya sido entregado. Si experimentas algún problema con tu pago, por favor abre un ticket en nuestro servidor de Discord.</p>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold text-white mb-2"><i class="fa-solid fa-truck-fast mr-2"></i> 2. Entrega de Productos</h3>
+                    <p>La entrega de los productos virtuales (VIP, bases, vehículos) se coordina de manera manual a través de nuestro sistema de soporte (Tickets) en Discord. Es obligatorio proveer tu <strong class="text-white">SteamID64</strong> correcto al momento de reclamar tu paquete para evitar demoras.</p>
+                </div>
+
+                <div>
+                    <h3 class="text-xl font-bold text-white mb-2"><i class="fa-solid fa-biohazard mr-2"></i> 3. Pérdida de Ítems y Wipes</h3>
+                    <p>KillZero no se hace responsable por la pérdida de ítems debido a bugs propios del juego (DayZ), asaltos (raids) legítimos por parte de otros jugadores, o durante los reinicios de temporada (Wipes). Los beneficios duran según lo especificado en cada paquete (Ej: "Todo el WIPE" o "Por 30 días").</p>
+                </div>
+
+                <div>
+                    <h3 class="text-xl font-bold text-white mb-2"><i class="fa-solid fa-gavel mr-2"></i> 4. Comportamiento y Reglas del Servidor</h3>
+                    <p>Adquirir un paquete VIP o cualquier producto de la tienda <strong class="text-white">no te otorga inmunidad</strong> ni te exime de cumplir las reglas generales del servidor. En caso de ser baneado por uso de trampas (hacks), aprovechar exploits, o tener un comportamiento tóxico/ilegal, perderás el acceso a tus beneficios sin derecho a reclamo ni reembolso.</p>
+                </div>
+
+                <div>
+                    <h3 class="text-xl font-bold text-white mb-2"><i class="fa-solid fa-wrench mr-2"></i> 5. Modificaciones de los Paquetes</h3>
+                    <p>La administración de KillZero se reserva el derecho de modificar o ajustar el contenido de los paquetes, vehículos, stats o bases en caso de que estos afecten el balance y la jugabilidad del servidor. Cualquier cambio mayor será notificado previamente a la comunidad.</p>
+                </div>
         </section>
 
     </main>
 
-    <!-- FOOTER -->
-    <footer class="bg-transparent border-t border-white/10 px-8 py-10 relative z-10 flex flex-col md:flex-row justify-between items-start gap-6">
-        <!-- ... (Contenido de Footer sin cambios) ... -->
+    <!-- FOOTER REDISEÑADO -->
+    <footer class="bg-transparent border-t border-white/10 px-8 py-10 relative z-10 flex flex-col items-center gap-6">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between gap-10 md:gap-4 mb-10">
+            
+            <!-- Columna 1: Sobre el Servidor -->
+            <div class="flex-1">
+                <h3 class="text-white font-bold text-lg mb-4 flex items-center gap-2"><i class="fa-solid fa-gamepad"></i> Sobre el Servidor</h3>
+                <p class="text-gray-400 text-sm leading-relaxed max-w-sm">
+                    Tienda oficial del servidor KillZero. Compra ítems, materiales y vehículos para mejorar tu experiencia de juego.
+                </p>
+            </div>
+
+            <!-- Columna 2: Links Útiles -->
+            <div class="flex-1">
+                <h3 class="text-white font-bold text-lg mb-4 flex items-center gap-2"><i class="fa-solid fa-link"></i> Links Útiles</h3>
+                <ul class="text-gray-400 text-sm space-y-3">
+                    <li><button onclick="navigate('reglas')" class="hover:text-white transition flex items-center gap-2"><i class="fa-solid fa-arrow-up-right-from-square text-xs"></i> Reglas del Servidor</button></li>
+                    <li><button onclick="navigate('terminos-uso')" class="hover:text-white transition flex items-center gap-2"><i class="fa-solid fa-arrow-up-right-from-square text-xs"></i> Términos de Uso</button></li>
+                    <li><button onclick="navigate('terminos')" class="hover:text-white transition flex items-center gap-2"><i class="fa-solid fa-arrow-up-right-from-square text-xs"></i> Términos y Condiciones</button></li>
+                </ul>
+            </div>
+
+            <!-- Columna 3: Soporte -->
+            <div class="flex-1">
+                <h3 class="text-white font-bold text-lg mb-4 flex items-center gap-2"><i class="fa-solid fa-shield-halved"></i> Soporte</h3>
+                <ul class="text-gray-400 text-sm space-y-3">
+                    <li><a href="https://discord.me/killzero" target="_blank" class="hover:text-white transition flex items-center gap-2"><i class="fa-regular fa-comment-dots"></i> Discord del Servidor</a></li>
+                    <li class="flex items-center gap-2 cursor-default"><i class="fa-solid fa-users"></i> Online: 24/7</li>
+                </ul>
+            </div>
+
+            <!-- Columna 4: Branding / Developer -->
+            <div class="flex-1">
+                <h3 class="text-white font-blackops text-2xl tracking-wider mb-2">KILL ZERO</h3>
+                <p class="text-gray-400 text-sm leading-relaxed max-w-sm mb-4">
+                    Elevando el estándar de la comunidad de DayZ a través de un PvP balanceado y rendimiento óptimo.
+                </p>
+                <div class="flex gap-4 text-gray-400 text-lg">
+                    <a href="https://discord.me/killzero" class="hover:text-white transition"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://discord.me/killzero" class="hover:text-white transition"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="https://discord.me/killzero" class="hover:text-white transition"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="https://discord.me/killzero" class="hover:text-white transition"><i class="fa-brands fa-discord"></i></a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Barra inferior de Copyright -->
+        <div class="max-w-7xl mx-auto border-t border-white/10 pt-6 text-center">
+            <p class="text-gray-500 text-xs">
+                Sistema desarrollado por <span class="text-white font-bold">KillZero Team</span> &copy; 2026. &bull; Todos los derechos reservados.
+            </p>
+        </div>
     </footer>
 
     <script src="script.js"></script>
